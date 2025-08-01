@@ -22,10 +22,100 @@ nav {
   display: none;
 }
 .mobile-menu {
-  font-size: 3rem;
+  width: 50px;
+  height: 33px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  z-index: 5000;
 }
-.fa-xmark {
-  display: none;
+.mobile-menu span {
+  display: block;
+  position: absolute;
+  height: 5.5px;
+  width: 100%;
+  background: rgb(68, 230, 68);
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+.mobile-menu span:nth-child(1) {
+  top: 0px;
+}
+
+.mobile-menu span:nth-child(2),
+.mobile-menu span:nth-child(3) {
+  top: 11px;
+}
+
+.mobile-menu span:nth-child(4) {
+  top: 22px;
+}
+.mobile-menu.open span:nth-child(1) {
+  top: 11px;
+  width: 0%;
+  left: 50%;
+}
+.mobile-menu.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+.mobile-menu.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+.mobile-menu.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: right 0.5s ease-in-out;
+  z-index: 1000;
+}
+nav.active {
+  right: 0;
+}
+nav ul {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+nav li {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+nav li:hover {
+  background-color: #555;
+}
+
+nav li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-transform: uppercase;
+  font-size: 2rem;
 }
 
 .hero {
@@ -120,7 +210,6 @@ footer {
   color: #fff;
   padding: 3rem 1rem;
   text-align: left;
-
 }
 footer h2 {
   text-transform: uppercase;
@@ -152,13 +241,14 @@ footer a {
   text-align: center;
   border-radius: 1rem;
 }
-footer h3{
+footer h3 {
   font-size: 3rem;
 }
-footer li, footer p{
+footer li,
+footer p {
   font-size: 2rem;
   margin-block: 1.5rem;
 }
-hr{
+hr {
   margin-block: 1rem;
 }
